@@ -1,7 +1,7 @@
 function fillArrayNoRepeat(x, randomMax){
-	//we want randomMax-1 because it is sort of "flooring" the floats to ints down
+	//we want randomMax-1 because it is sort of "flooring" down the floats to ints
 	randomMax = randomMax - 1;
-	var templist = [1.1];
+	var templist = [1.1]; // 1.1 is just a placeholder
 	var n = 1.1;
 	
 	var j = 0;
@@ -12,7 +12,7 @@ function fillArrayNoRepeat(x, randomMax){
 		n = n*randomMax;
 		n = Math.floor(n);
 		
-		//we do a while from the last int added to the first looking for duplicates
+		//we do a while from the last added int to the first looking for duplicates
 		j = i;
 		while(templist[j] != n && j > 0){
 			j--;

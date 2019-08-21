@@ -1,4 +1,6 @@
+//this function is for getting the difference between two dates (int day, month, year)
 function subtractDays(d1, m1, y1, d2, m2, y2) {
+	//this function doesn't need data validation, apparently
 	//get date object
 	date1 = new Date(y1, m1, d1);
 	date2 = new Date(y2, m2, d2);
@@ -14,5 +16,5 @@ function subtractDays(d1, m1, y1, d2, m2, y2) {
 	var dif_ms = date2_ms - date1_ms;
 	
 	//return the integer days difference
-	return Math.round(dif_ms/oneDay); 
+	return Math.round(dif_ms/oneDay);
 }

@@ -1,0 +1,59 @@
+<!--
+    Let's do a list of expandable <div>
+    Them should expand to the minimum height to all the content to be visible
+    And if you click on it again, they get the default height
+    Only using HTML, CSS and pure JavaScript
+-->
+<html>
+    <head>
+        <style>
+            .text{
+                height: 100px;
+                width: 100px;
+                cursor: zoom-in;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                border: 2px solid rgb(230, 0, 0);
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="text" onclick="toggleRead(0)">
+            blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+        </div>
+        <div class="text" onclick="toggleRead(1)">
+            blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+            <img src="img.jpg">
+        </div>
+        <div class="text" onclick="toggleRead(2)">
+            <img src="img.jpg">
+            blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+        </div>
+        <script>
+            // When clicked, those <div> are going to call this (arrow) function that toggles the height
+            toggleRead = (i) => {
+                var el = document.getElementsByClassName('text')[i]; // lets get the element that called this function
+                
+                // from inside of the parenthesis to outside:
+                // let's get the height of the element and parse it, to get only the number, for example 100 instead of 100px
+                // then, isNaN will return false if that's a number
+                // we only want to store the first time, that is going to have its value assigned by the CSS in <style>
+                if (isNaN(parseInt(el.style.height))) el.defaultHeight = el.style.height; 
+                
+                /* here we check if the current div height is equal to the scrollHeight
+                the scrollHeight is the minimum height for the div to get all its content into the div
+                sort of translation to programmers:
+                if (currentHeight == innerHTMLHeight) originalHeight(); else fullHeight(); */
+                if (parseInt(el.style.height) == el.scrollHeight){
+                    el.style.height = el.defaultHeight;
+                    el.style.cursor = "zoom-in";
+                } else {
+                    el.style.height = el.scrollHeight;
+                    el.style.cursor = "zoom-out";
+                }
+            }
+        </script>
+
+    </body>
+</html>

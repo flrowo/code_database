@@ -1,5 +1,7 @@
+# before anything
 # You can use these passwords with the light_list.txt for testing
 # Easy@1234 e Hard@1234
+# Just change the second argument in the hydra method call (line 68) to "light_list.txt"
 
 def thereIs(charString, string):
     i=0
@@ -61,7 +63,9 @@ def hydra(pw, path):
 print("Do you want to try brute force on this password? (Y/n)")
 input_=input()
 if not ("no" == input_.lower() or "n" == input_.lower()):
-    found = hydra(password, "password_list.txt")
+    # here is an example using 10'000'000 (10 million) famous passwords
+    #located in danielmiessler's github
+    found = hydra(password, "<passwords_txt_path>")
     if found:
         print("Your password could be secure, but it is on the top 10^7 (10 Million) most used passwords. So it is crackable by dictionary attack")
     else:
